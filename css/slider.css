@@ -1,0 +1,56 @@
+/* photo slider */
+#photo {
+	position:relative;
+	margin-bottom:20px;
+}
+#photoWrap {
+	width:465px;
+	height:257px;
+	overflow:hidden;
+}
+#top_slide {
+	padding:0;
+	margin:0;
+	height:257px;
+	overflow:hidden;
+}
+	#top_slide li {
+		float:left;
+		display:block;
+		width:465px;
+		height:257px;
+		margin:0;
+		padding:0;
+		list-style-type:none;
+		overflow:hidden;
+	}
+	#top_slide img {
+		vertical-align:middle;
+		width:465px;
+	}			
+#prevBtnTop,
+#nextBtnTop {
+	background-image:url(../images/arrow.png);
+	cursor: pointer;
+	width: 35px;
+	height:35px;
+	position:absolute;
+	top:111px;
+	z-index:1;
+}
+#prevBtnTop {
+	background-position:0 0;
+	left:10px;
+}
+#nextBtnTop {
+	background-position:100% 0;
+	right:10px;
+}
+#prevBtnTop:hover {
+	background-position:0 100%;
+	left:10px;
+}
+#nextBtnTop:hover {
+	background-position:100% 100%;
+	right:10px;
+}

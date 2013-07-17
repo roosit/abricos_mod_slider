@@ -1,0 +1,44 @@
+<!--[*]
+[script]sliderblock.php[/script]
+[mcss=slider]slider.css[/mcss]
+[mjs=slider]slider.js[/mjs]
+[bkvar=ttowner]alternativa[/bkvar]
+[p=count]10[/p]
+[bkvar=result][/bkvar]
+[bkvar=time][/bkvar]
+[bkvar=speed][/bkvar]
+[bkvar=row]
+	<li><img src="/filemanager/i/{v#filehash}/{v#filename}" /></li> 
+[/bkvar]
+
+[*]-->
+
+<script language="javascript" type="text/javascript" src="/modules/slider/js/jquery-1.6.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="/modules/slider/js/slider.js"></script>
+<script language="javascript" type="text/javascript">
+(function($){
+    $(
+        function()
+        {
+            $('#top_slide').slider({
+                numOf:1,
+                speed:[bkvar]speed[/bkvar],
+                autoplay:true,
+                wrapSlider: true,
+                wrapId:'photoWrap',
+                prevId:'prevBtnTop',
+                nextId:'nextBtnTop',
+                autoplayTimeout:[bkvar]time[/bkvar] });	
+        }
+    );
+})(jQuery);
+</script>
+
+<div id="photo">
+	<div id="photoWrap">
+		<ul id="top_slide">
+			[bkvar]result[/bkvar] 
+		</ul>
+	</div>
+</div>
+
