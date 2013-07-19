@@ -1,0 +1,234 @@
+.aw-slider .clear { clear: both;}
+.aw-slider .loading,
+.aw-slider .nullitem { 
+	text-align: center;
+	padding: 70px 0; 
+}
+
+/* * * * * * AHref Button * * * * */
+.aw-slider a.habtn {
+	border-bottom: 1px dotted;
+	text-decoration: none;
+	margin: 0 5px;
+}
+.aw-slider a.warn {
+	color: #DA4242;
+}
+
+.aw-slider .rowselect {
+	background-color: #FFF0C6;
+}
+
+
+/* * * * Превьюшки * * * * */
+.aw-slider .tmb24 { width: 24px; height: 24px; }
+.aw-slider .tmb50 { width: 50px; height: 50px; }
+.aw-slider .tmb80 { width: 80px; height: 80px; }
+
+.aw-slider .tmb50 img { max-width: 50px; max-height: 50px; }
+.aw-slider .tmb80 img { max-width: 80px; max-height: 80px; }
+.aw-slider .tmb24 img { max-width: 24px; max-height: 24px; }
+
+.aw-slider .tmb { display: table; }
+.aw-slider .tmb .tmbpre {
+	display: table-cell;
+	vertical-align: middle;
+}
+.aw-slider .tmb .tmbpre img {
+	display: block;
+	margin: 0 auto;
+}
+
+/* * * * Editor Form * * * */
+.aw-slider .editform .dsc,
+.aw-slider .viewform .dsc {
+	color: #555555;
+	font-size: .9em;
+}
+
+.aw-slider .editform h3,
+.aw-slider .viewform h3 {
+    color: #333333;
+    font-size: 1.28em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+
+	font-weight: normal !important;
+}
+.aw-slider .editform h4,
+.aw-slider .viewform h4 {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.aw-slider .editform .group,
+.aw-slider .viewform .group {
+	margin: 0 20px;
+	border-bottom: 1px solid #E3E3D7;
+	margin-bottom: 1em;
+	padding-bottom: .8em;
+}
+.aw-slider .editform .fieldline {
+	margin-bottom: 10px;
+}
+.aw-slider .editform dl,
+.aw-slider .viewform dl {
+	display: block;
+	min-height: 30px;
+}
+.aw-slider .editform dt,
+.aw-slider .viewform dt {
+	clear: left;
+    float: left;
+    padding-top: 3px;
+    width: 200px;
+}
+.aw-slider .viewform dt {
+	text-align: right;
+	color: #999999;
+}
+
+.aw-slider .editform dd,
+.aw-slider .viewform dd  {
+    float: none;
+    margin-left: 220px;
+    padding-top: 3px;
+}
+.aw-slider .editform p {
+	margin: 5px 0 7px;
+}
+.aw-slider .editform input.inp,
+.aw-slider .editform select.inp,
+.aw-slider .editform textarea.inp {
+    border: 1px solid #ACAEB4;
+    border-radius: 3px 3px 3px 3px;
+    line-height: 20px;
+    padding: 3px;
+    width: 400px;
+}
+.aw-slider .editform select.inp {
+	width: 407px;
+	min-height: 24px;
+}
+.aw-slider .editform textarea.inp {
+	height: 100px;
+}
+.aw-slider .editform .baction {
+	margin-top: 10px;
+	margin-right: 2em;
+}
+.aw-slider .editform .baction input {
+ 	margin-right: 10px;
+    padding: 2px 5px;	
+}
+.aw-slider .editform .baction .error {
+	color: red;
+	margin-right: 10px;
+}
+
+/* * * EasyEditor * * */
+.aw-slider .easyeditor {
+	position: relative;
+}
+.aw-slider .easyeditor .editform {
+	border-top: 1px solid #D1D3DC;
+	padding-top: 10px;
+}
+.aw-slider .easyeditor .btnsc {
+	position: absolute;
+	right: 3px; top: 4px;
+}
+.aw-slider .easyeditor .r {
+	margin-bottom: 7px;
+}
+.aw-slider .easyeditor .rtl {
+	margin-bottom: 7px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #D1D3DC;
+	position: relative;
+}
+.aw-slider .easyeditor .rtl .habtn {
+	position: absolute;
+	top: 0px; right: 0px;
+	border-bottom: none;
+}
+.aw-slider .easyeditor .fl {
+	float: left;
+}
+.aw-slider .easyeditor .fldtl {
+	width: 99% !important;
+}
+.aw-slider .easyeditor .btns {
+	border-top: 1px solid #D1D3DC;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+.aw-slider .easyeditor .mext {
+	display: none;
+}
+.aw-slider .easyeditor dl:hover {
+	background-color: #FFE9AD;
+}
+/* * * * * Visual Editor * * * */
+.aw-slider .easyeditor .visualeditor dt {
+	float: none;
+}
+.aw-slider .easyeditor .visualeditor dd {
+    margin-left: 0px;
+    padding-bottom: 3px;
+}
+
+/* * * Box Buttons * * */
+.aw-slider .boxbutton {
+	border: 1px solid #dadada;
+	border-right: none;
+}
+.aw-slider .boxbutton .b {
+	background-color: #fff;
+	cursor: pointer;
+	padding-left: 5px;
+	padding-top: 4px;
+	width: 18px;
+	height: 18px;
+	float: left;
+	border-right: 1px solid #dadada;
+}
+.aw-slider .boxbutton .bm {
+	padding-left: 1px !important;
+	padding-top: 1px !important;
+}
+.aw-slider .boxbutton .b:hover {
+	background-color: #FFF0C6; 
+}
+.aw-slider .boxbutton .bc {
+	width: 12px;
+	height: 14px;
+}
+.aw-slider .boxbutton .bgo {
+	background: url("/modules/slider/images/icons.png") no-repeat scroll -20px -39px transparent;
+}
+.aw-slider .boxbutton .border {
+	background: url("/modules/slider/images/icons.png?b=0.1") no-repeat scroll -47px -38px transparent;
+	width: 16px;
+	height: 17px;
+}
+.aw-slider .boxbutton .bgopage {
+	background: url("/modules/slider/images/icons.png") no-repeat scroll -20px -39px transparent;
+}
+.aw-slider .boxbutton .badd {
+	background: url("/modules/slider/images/icons.png") no-repeat scroll -57px -24px transparent;
+}
+.aw-slider .boxbutton .bedit {
+	background: url("/modules/slider/images/icons.png") no-repeat scroll -29px -24px transparent;
+}
+.aw-slider .boxbutton .bcp {
+	padding-left: 4px !important;
+	padding-top: 3px !important;
+}
+.aw-slider .boxbutton .bcopy {
+	background: url("/modules/slider/images/icons.png") no-repeat scroll -66px -39px transparent;
+	width: 14px;
+	height: 15px;
+}
+.aw-slider .boxbutton .bremove {
+	background: url("/modules/slider/images/icons.png") no-repeat scroll -42px -24px transparent;
+}

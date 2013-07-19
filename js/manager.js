@@ -1,5 +1,4 @@
 /**
-* @version $Id: manager.js 310 2010-01-17 19:31:46Z roosit $
 * @package Abricos
 * @copyright Copyright (C) 2008 Abricos. All rights reservedd.
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php

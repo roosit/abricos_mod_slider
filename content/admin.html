@@ -1,0 +1,17 @@
+<!--[*]
+[tt=main][/tt]
+[*]-->
+
+<h2>Управление слайдером</h2>
+<div id="aw-slider-adminpanel">
+	<img class="ldg" src="/images/loading.gif" />
+</div>
+
+<script>
+
+	Brick.ff('slider', 'sliderlist', function(){
+		var container = document.getElementById("aw-slider-adminpanel");
+		new Brick.mod.slider.SliderListWidget(container);
+	});
+
+</script>

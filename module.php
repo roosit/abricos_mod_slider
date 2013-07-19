@@ -20,16 +20,16 @@ class SliderModule extends Ab_Module {
 	public function GetContentName(){
 		$adress = $this->registry->adress;
 		
-		if($adress->level == 2 && substr($adress->dir[1], 0, 4) != 'page'){
-			return "view";
+		if($adress->level == 2 && $adress->dir[1] == 'admin'){
+			return "admin";
 		}
-		return "index";
+		return "";
 	}
 	
 	/**
 	 * Получить менеджер
 	 *
-	 * @return NewsManager
+	 * @return SliderManager
 	 */
 	public function GetManager(){
 		if (is_null($this->_manager)){
