@@ -6,18 +6,20 @@
 class SliderQuery {
 	
 	public static function SliderList(Ab_Database $db){
-
 		$sql = "
 			SELECT
-                file.filehash as flsh,
-                file.filename as fln
-			FROM ".$db->prefix."fm_file file, ".$db->prefix.'fm_folder folder
-			WHERE file.folderid = folder.folderid AND file.attribute = 0 AND folder.name = "slider"
-		';
+				s.sliderid as id,
+				s.images as img,
+				s,title as tl,
+				s.url,
+				s.ord
+			FROM ".$db->prefix."slider s
+			ORDER BY ord DESC 
+		";
 		return $db->query_read($sql);
 	}
     
-    
+    /*
     public static function SliderConfig(Ab_Database $db){
 		$sql = "
 			SELECT
@@ -36,7 +38,7 @@ class SliderQuery {
 		";
 		$db->query_write($sql);
 	}
-    
+    /**/
     
 }
 

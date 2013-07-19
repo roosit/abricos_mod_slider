@@ -1,5 +1,6 @@
 <?php
 return array(
+		/*
 	'brick' => array(
 		'lastnews' => array(
 			"1" => "All News"
@@ -22,5 +23,6 @@ return array(
 		)
 
 	)
+		/**/
 );
 ?>
