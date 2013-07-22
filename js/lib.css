@@ -19,7 +19,6 @@
 	background-color: #FFF0C6;
 }
 
-
 /* * * * Превьюшки * * * * */
 .aw-slider .tmb24 { width: 24px; height: 24px; }
 .aw-slider .tmb50 { width: 50px; height: 50px; }
@@ -28,6 +27,14 @@
 .aw-slider .tmb50 img { max-width: 50px; max-height: 50px; }
 .aw-slider .tmb80 img { max-width: 80px; max-height: 80px; }
 .aw-slider .tmb24 img { max-width: 24px; max-height: 24px; }
+
+.aw-slider .tmb50 { width: 50px; height: 50px; }
+.aw-slider .tmb100 { width: 100px; height: 100px; }
+.aw-slider .tmb200 { width: 200px; height: 200px; }
+
+.aw-slider .tmb50 img { max-width: 50px; max-height: 50px; }
+.aw-slider .tmb100 img { max-width: 100px; max-height: 100px; }
+.aw-slider .tmb200 img { max-width: 200px; max-height: 200px; }
 
 .aw-slider .tmb { display: table; }
 .aw-slider .tmb .tmbpre {

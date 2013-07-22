@@ -22,8 +22,9 @@ class SliderQuery {
 	public static function SliderAppend(Ab_Database $db, $d){
 		$sql = "
 			INSERT INTO ".$db->prefix."slider
-			(title) VALUES (
-				'".bkstr($d->tl)."'
+			(title, filehash) VALUES (
+				'".bkstr($d->tl)."',
+				'".bkstr($d->img)."'
 			)
 		";
 		$db->query_write($sql);
@@ -34,7 +35,8 @@ class SliderQuery {
 		$sql = "
 			UPDATE ".$db->prefix."slider
 			SET
-				title='".bkstr($d->tl)."'
+				title='".bkstr($d->tl)."',
+				filehash='".bkstr($d->img)."'
 			WHERE sliderid=".bkint($sliderid)."
 			LIMIT 1
 		";

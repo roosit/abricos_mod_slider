@@ -20,8 +20,12 @@ class SliderModule extends Ab_Module {
 	public function GetContentName(){
 		$adress = $this->registry->adress;
 		
-		if($adress->level == 2 && $adress->dir[1] == 'admin'){
-			return "admin";
+		if($adress->level >= 2){
+			switch ($adress->dir[1]){
+				case 'admin':
+				case 'uploadimg':
+					return $adress->dir[1];
+			}
 		}
 		return "";
 	}

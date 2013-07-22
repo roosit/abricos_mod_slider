@@ -32,16 +32,16 @@ Component.entryPoint = function(NS){
 	var Slider = function(d){
 		d = L.merge({
 			'tl': '',
-			'dsc': '',
-			'def': 0,
+			'img': '',
+			'url': '',
 			'ord': 0
 		}, d || {});
 		Slider.superclass.constructor.call(this, d);
 	};
 	YAHOO.extend(Slider, SysNS.Item, {
 		update: function(d){
-			this.imgage = d['img'];
 			this.title = d['tl'];
+			this.image = d['img'];
 			this.url = d['url'];
 			this.order = d['ord']|0;
 		}
