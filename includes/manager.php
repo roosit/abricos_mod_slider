@@ -20,7 +20,7 @@ class SliderManager extends Ab_ModuleManager {
 	
 	/**
 	 * Настойки модуля
-	 * @var SlidebarConfig
+	 * @var SliderConfig
 	 */
 	public $config = null;
 	
@@ -37,7 +37,7 @@ class SliderManager extends Ab_ModuleManager {
 	 * Есть ли у этого пользователя роль админа?
 	 */
 	public function IsAdminRole(){
-		return $this->IsRoleEnable(SlidebarAction::ADMIN);
+		return $this->IsRoleEnable(SliderAction::ADMIN);
 	}
 
 	/**
@@ -45,7 +45,7 @@ class SliderManager extends Ab_ModuleManager {
 	 */
 	public function IsWriteRole(){
 		if ($this->IsAdminRole()){ return true; }
-		return $this->IsRoleEnable(SlidebarAction::WRITE);
+		return $this->IsRoleEnable(SliderAction::WRITE);
 	}
 	
 	/**
@@ -53,8 +53,31 @@ class SliderManager extends Ab_ModuleManager {
 	 */
 	public function IsViewRole(){
 		if ($this->IsWriteRole()){ return true; }
-		return $this->IsRoleEnable(SlidebarAction::VIEW);
+		return $this->IsRoleEnable(SliderAction::VIEW);
 	}
+	
+	public function AJAX($d){
+		switch($d->do){
+			case "initdata": return $this->InitDataToAJAX();
+
+			case "sliderlist": return $this->SliderListToAJAX();
+			case "slidersave": return $this->SliderSaveToAJAX($d->savedata);
+			case "sliderremove": return $this->SliderRemove($d->sliderid);
+		}
+	
+		return null;
+	}
+	
+	public function InitDataToAJAX(){
+		if (!$this->IsViewRole()){ return null; }
+	
+		$ret = new stdClass();
+	
+		$obj = $this->SliderListToAJAX();
+		$ret->sliders = $obj->sliders;
+	
+		return $ret;
+	}	
 
 	/**
 	 * Список элементов слайдера
@@ -64,13 +87,62 @@ class SliderManager extends Ab_ModuleManager {
 		if (!$this->IsViewRole()){ return null; } // если у пользователя нет доступа на чтение, то выдаем пустоту
 		
 		$list = new SliderList();
-		$rows = SliderQuery::Slider($this->db);
+		$rows = SliderQuery::SliderList($this->db);
 		while (($d = $this->db->fetch_array($rows))){
 			$list->Add(new SliderItem($d));
 		}
 		
 		return $list;
 	}
+	
+	public function SliderListToAJAX(){
+		$list = $this->SliderList();
+		if (empty($list)){ return null; }
+		
+		$ret = new stdClass();
+		$ret->sliders = $list->ToAJAX();
+		return $ret;
+	}
+	
+	public function SliderSave($sd){
+		if (!$this->IsAdminRole()){ return null; }
+	
+		$sliderid = intval($sd->id);
+	
+		$utm  = Abricos::TextParser(true);
+		$utm->jevix->cfgSetAutoBrMode(true);
+	
+		$utmf  = Abricos::TextParser(true);
+	
+		$sd->tl = $utmf->Parser($sd->tl);
+	
+		if ($sliderid == 0){
+			$sliderid = SliderQuery::SliderAppend($this->db, $sd);
+		}else{
+			SliderQuery::SliderUpdate($this->db, $sliderid, $sd);
+		}
+	
+		return $sliderid;
+	}
+		
+	public function SliderSaveToAJAX($sd){
+		$sliderid = $this->SliderSave($sd);
+	
+		if (empty($sliderid)){ return null; }
+	
+		$ret = $this->SliderListToAJAX();
+		$ret->sliderid = $sliderid;
+		return $ret;
+	}
+	
+	public function SliderRemove($sliderid){
+		if (!$this->IsAdminRole()){ return null; }
+	
+		SliderQuery::SliderRemove($this->db, $sliderid);
+	
+		return true;
+	}
+	
     
 	/*
     public function SliderConfig(){

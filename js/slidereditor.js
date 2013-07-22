@@ -17,40 +17,30 @@ Component.entryPoint = function(NS){
 		buildTemplate = this.buildTemplate,
 		BW = Brick.mod.widget.Widget;
 
-	var PaymentEditorWidget = function(container, pay, cfg){
+	var SliderEditorWidget = function(container, slider, cfg){
 		cfg = L.merge({
 			'onCancelClick': null,
 			'onSave': null
 		}, cfg || {});
-		PaymentEditorWidget.superclass.constructor.call(this, container, {
+		SliderEditorWidget.superclass.constructor.call(this, container, {
 			'buildTemplate': buildTemplate, 'tnames': 'widget' 
-		}, pay, cfg);
+		}, slider, cfg);
 	};
-	YAHOO.extend(PaymentEditorWidget, BW, {
-		init: function(pay, cfg){
-			this.pay = pay;
+	YAHOO.extend(SliderEditorWidget, BW, {
+		init: function(slider, cfg){
+			this.slider = slider;
 			this.cfg = cfg;
 		},
-		destroy: function(){
-			if (YAHOO.util.DragDropMgr){
-				YAHOO.util.DragDropMgr.unlock();
-			} 
-			PaymentEditorWidget.superclass.destroy.call(this);
-		},
-		onLoad: function(pay){
-			if (YAHOO.util.DragDropMgr){
-				YAHOO.util.DragDropMgr.lock();
-			} 
-			this.pay = pay;
+		onLoad: function(slider){
+			this.slider = slider;
 
 			this.elHide('loading');
 			this.elShow('view');
 			
 			this.elSetValue({
-				'tl': pay.title,
-				'dsc': pay.descript
+				'tl': slider.title,
+				'dsc': slider.descript
 			});
-			this.gel('def').checked = !!pay.isDefault;
 			
 			var elTitle = this.gel('tl');
 			setTimeout(function(){try{elTitle.focus();}catch(e){}}, 100);
@@ -75,24 +65,22 @@ Component.entryPoint = function(NS){
 		},
 		save: function(){
 			var cfg = this.cfg;
-			var pay = this.pay;
+			var slider = this.slider;
 			var sd = {
-				'id': pay.id,
-				'tl': this.gel('tl').value,
-				'dsc': this.gel('dsc').value,
-				'def': this.gel('def').checked ? 1 : 0
+				'id': slider.id,
+				'tl': this.gel('tl').value
 			};
 			
 			this.elHide('btnsc');
 			this.elShow('btnpc');
 
 			var __self = this;
-			NS.manager.paymentSave(pay.id, sd, function(pay){
+			NS.manager.sliderSave(slider.id, sd, function(slider){
 				__self.elShow('btnsc,btnscc');
 				__self.elHide('btnpc,btnpcc');
-				NS.life(cfg['onSave'], __self, pay);
-			}, pay);
+				NS.life(cfg['onSave'], __self, slider);
+			}, slider);
 		}
 	});
-	NS.PaymentEditorWidget = PaymentEditorWidget;
+	NS.SliderEditorWidget = SliderEditorWidget;
 };

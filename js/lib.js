@@ -57,6 +57,8 @@ Component.entryPoint = function(NS){
 	NS.SliderList = SliderList;
 	
 	
+	// все запросы к данным модуля (на сервер) поступают через этот класс
+	// на сервере обрабатывает метод AJAX (includes/manager.php)
 	var Manager = function (callback){
 		this.init(callback);
 	};
@@ -65,10 +67,13 @@ Component.entryPoint = function(NS){
 			NS.manager = this;
 			
 			this.sliderList = new SliderList();
-			
+	
 			var __self = this;
-			R.load(function(){
-				__self.ajax({'do': 'initdata'}, function(d){
+			R.load(function(){ // загрузили роли, если они еще не подгружены в ядро JS
+				__self.ajax({'do': 'initdata'}, function(d){ // запросили данные
+
+					// Brick.console(d); // - так можно смотреть что вернул сервер
+					
 					__self._updateSliderList(d);
 					NS.life(callback, __self);
 				});

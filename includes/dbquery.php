@@ -9,8 +9,8 @@ class SliderQuery {
 		$sql = "
 			SELECT
 				s.sliderid as id,
-				s.images as img,
-				s,title as tl,
+				s.filehash as img,
+				s.title as tl,
 				s.url,
 				s.ord
 			FROM ".$db->prefix."slider s
@@ -18,6 +18,37 @@ class SliderQuery {
 		";
 		return $db->query_read($sql);
 	}
+	
+	public static function SliderAppend(Ab_Database $db, $d){
+		$sql = "
+			INSERT INTO ".$db->prefix."slider
+			(title) VALUES (
+				'".bkstr($d->tl)."'
+			)
+		";
+		$db->query_write($sql);
+		return $db->insert_id();
+	}
+	
+	public static function SliderUpdate(Ab_Database $db, $sliderid, $d){
+		$sql = "
+			UPDATE ".$db->prefix."slider
+			SET
+				title='".bkstr($d->tl)."'
+			WHERE sliderid=".bkint($sliderid)."
+			LIMIT 1
+		";
+		$db->query_write($sql);
+	}
+	
+	public static function SliderRemove(Ab_Database $db, $sliderid){
+		$sql = "
+			DELETE ".$db->prefix."slider
+			WHERE sliderid=".bkint($sliderid)."
+			LIMIT 1
+		";
+		$db->query_write($sql);
+	}	
     
     /*
     public static function SliderConfig(Ab_Database $db){

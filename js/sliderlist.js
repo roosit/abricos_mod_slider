@@ -58,11 +58,11 @@ Component.entryPoint = function(NS){
 			var elList = this.gel('list'), ws = this.wsList, 
 				__self = this;
 			
-			NS.manager.sliderList.foreach(function(pay){
+			NS.manager.sliderList.foreach(function(item){
 				var div = document.createElement('div');
 
 				elList.appendChild(div);
-				var w = new NS.SliderRowWidget(div, pay, {
+				var w = new NS.SliderRowWidget(div, item, {
 					'onEditClick': function(w){__self.onSliderEditClick(w);},
 					'onRemoveClick': function(w){__self.onSliderRemoveClick(w);},
 					'onSelectClick': function(w){__self.onSliderSelectClick(w);},
@@ -93,7 +93,7 @@ Component.entryPoint = function(NS){
 		},
 		onSliderRemoveClick: function(w){
 			var __self = this;
-			new SliderRemovePanel(w.pay, function(){
+			new SliderRemovePanel(w.item, function(){
 				__self.renderList();
 			});
 		},
